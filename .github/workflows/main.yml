@@ -10,10 +10,10 @@ jobs:
 
    steps:
    - name: Checkout code
-     uses: actions/checkout@v2
+     uses: actions/checkout@v6.0.1
 
    - name: Set up Python
-     uses: actions/setup-python@v2
+     uses: actions/setup-python@v6.1.0
      with:
        python-version: 3.8
 
@@ -24,7 +24,7 @@ jobs:
      run: bandit -ll -ii -r . -f json -o bandit-report.json
 
    - name: Upload Artifact
-     uses: actions/upload-artifact@v3
+     uses: actions/upload-artifact@v6.0.0
      if: always()
      with:
       name: bandit-findings
@@ -36,7 +36,7 @@ jobs:
 
    steps:
    - name: Checkout code
-     uses: actions/checkout@v2
+     uses: actions/checkout@v6.0.1
 
    - name: Set up Docker
      uses: docker-practice/actions-setup-docker@v1
@@ -64,7 +64,7 @@ jobs:
        sarif-file: scout-report.sarif
 
    - name: Upload Artifact
-     uses: actions/upload-artifact@v3
+     uses: actions/upload-artifact@v6.0.0
      if: always()
      with:
        name: docker-scout-findings
